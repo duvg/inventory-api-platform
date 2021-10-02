@@ -16,9 +16,10 @@ class UserRepository extends BaseRepository
 
     public function findOneByEmailOrFail(string $email): User
     {
-        if (null === $user = $this->objectRepository->findBy(['email' => $email])) {
+            if (null === $user = $this->objectRepository->findOneBy(['email' => $email])) {
             throw UserNotFoundException::fromEmail($email);
         }
+
 
         return $user;
     }
