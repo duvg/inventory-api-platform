@@ -32,6 +32,10 @@ security:
             pattern: ^/api/v1/users/reset_password
             methods: [ POST ]
             security: false
+        activate:
+            pattern: ^/api/v1/users/activate
+            methods: [ PUT ]
+            security: false
         login:
             pattern: /api/v1/users/login
             stateless: true
@@ -49,4 +53,4 @@ security:
                     - lexik_jwt_authentication.jwt_token_authenticator
 
     access_control:
-        - { path: ^/api/v1, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/v1, roles: IS_AUTHENTICATED_FULLY } #^/api/v1/users/{id}/activate

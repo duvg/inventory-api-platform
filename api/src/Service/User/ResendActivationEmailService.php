@@ -22,9 +22,8 @@ class ResendActivationEmailService
         $this->messageBus = $messageBus;
     }
 
-    public function resend(Request $request): void
+    public function resend(string $email): void
     {
-        $email = RequestService::getField($request, 'email');
         $user = $this->userRepository->findOneByEmailOrFail($email);
 
         if ($user->isActive()) {

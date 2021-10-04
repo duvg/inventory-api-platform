@@ -157,7 +157,7 @@ App\Entity\User:
       method: GET
     activate:
       method: PUT
-      path: /users/{id}/activate
+      path: /users/activate/{id}
       controller: App\Api\Action\User\ActivateAccount
       deserialize: false
       denormalization_context:
