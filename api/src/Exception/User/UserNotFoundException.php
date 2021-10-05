@@ -8,7 +8,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class UserNotFoundException extends NotFoundHttpException
 {
-
     private const MESSAGE = 'User with email %s not found';
 
     public static function fromEmail(string $email): self
@@ -30,5 +29,4 @@ class UserNotFoundException extends NotFoundHttpException
     {
         throw new self(\sprintf('User with id %s not found'));
     }
-
 }

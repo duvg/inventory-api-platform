@@ -17,29 +17,18 @@ class RequestResetPasswordMessage
         $this->resetPasswoordToken = $resetPasswoordToken;
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
     public function getResetPasswoordToken(): string
     {
         return $this->resetPasswoordToken;
     }
-
-
 }

@@ -21,7 +21,6 @@ class ChangePassword
     }
 
     /**
-     * @return User
      * @throws ORMException
      * @throws OptimisticLockException
      */

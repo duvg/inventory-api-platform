@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use Doctrine\DBAL\Cache\CacheException;
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Exception;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectRepository;
-use Doctrine\DBAL\Exception;
-
 
 abstract class BaseRepository
 {
@@ -66,7 +64,6 @@ abstract class BaseRepository
         $this->getEntityManager()->flush();
     }
 
-
     /**
      * @throws Exception
      * @throws Exception
@@ -75,7 +72,6 @@ abstract class BaseRepository
     {
         return $this->connection->executeQuery($query, $params)->fetchAllAssociative();
     }
-
 
     /**
      * @throws Exception
@@ -92,7 +88,7 @@ abstract class BaseRepository
     {
         $entityManager = $this->managerRegistry->getManager();
 
-        if($entityManager->isOpen()) {
+        if ($entityManager->isOpen()) {
             return $entityManager;
         }
 

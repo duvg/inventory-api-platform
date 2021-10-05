@@ -16,7 +16,7 @@ class UserRepository extends BaseRepository
 
     public function findOneByEmailOrFail(string $email): User
     {
-            if (null === $user = $this->objectRepository->findOneBy(['email' => $email])) {
+        if (null === $user = $this->objectRepository->findOneBy(['email' => $email])) {
             throw UserNotFoundException::fromEmail($email);
         }
 
@@ -51,7 +51,6 @@ class UserRepository extends BaseRepository
     }
 
     /**
-     * @param User $user
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -61,7 +60,6 @@ class UserRepository extends BaseRepository
     }
 
     /**
-     * @param User $user
      * @throws ORMException
      * @throws OptimisticLockException
      */

@@ -64,7 +64,7 @@ App\Entity\User:
                     message:
                       type: string
     reset_password:
-      method: POST
+      method: PUT
       path: /users/reset_password
       controller: App\Api\Action\User\ResetPassword
       deserialize: false

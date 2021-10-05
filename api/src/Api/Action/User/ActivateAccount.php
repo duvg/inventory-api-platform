@@ -16,7 +16,6 @@ class ActivateAccount
         $this->accountService = $accountService;
     }
 
-
     public function __invoke(Request $request, string $id): User
     {
         return $this->accountService->activate($id, RequestService::getField($request, 'token'));

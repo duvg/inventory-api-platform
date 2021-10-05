@@ -19,13 +19,13 @@ class RequestResetPassword
     }
 
     /**
-     * @return JsonResponse
      * @throws ORMException
      * @throws OptimisticLockException
      */
     public function __invoke(Request $request): JsonResponse
     {
         $this->requestResetPasswordService->send(RequestService::getField($request, 'email'));
+
         return new JsonResponse(['message' => 'Request reset password email sent']);
     }
 }

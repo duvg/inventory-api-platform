@@ -4,8 +4,6 @@ namespace App\Service\User;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use App\Service\Request\RequestService;
-use Symfony\Component\HttpFoundation\Request;
 
 class ActivateAccountService
 {
