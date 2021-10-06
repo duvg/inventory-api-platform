@@ -54,7 +54,7 @@ class TestBase extends WebTestCase
 
         if (null === self::$esther) {
             self::$esther = clone self::$client;
-            $this->createAuthenticatedUser(self::$esther, 'ester@test.com');
+            $this->createAuthenticatedUser(self::$esther, 'esther@test.com');
         }
 
     }

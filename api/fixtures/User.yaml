@@ -19,6 +19,6 @@ App\Entity\User:
   User-2:
     __construct:
       name: Esther
-      email: ester@test.com
+      email: esther@test.com
     password: <{testing_password_hash}>
     active: false
