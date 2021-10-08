@@ -13,6 +13,15 @@
             "src/Entity/.gitignore"
         ]
     },
+    "aws/aws-crt-php": {
+        "version": "v1.0.2"
+    },
+    "aws/aws-sdk-php": {
+        "version": "3.197.1"
+    },
+    "cloudinary/cloudinary_php": {
+        "version": "2.4.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
@@ -108,6 +117,15 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "guzzlehttp/guzzle": {
+        "version": "7.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.4.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.8.3"
+    },
     "hautelook/alice-bundle": {
         "version": "2.1",
         "recipe": {
@@ -131,6 +149,28 @@
     "lcobucci/jwt": {
         "version": "4.1.5"
     },
+    "league/flysystem": {
+        "version": "2.3.0"
+    },
+    "league/flysystem-aws-s3-v3": {
+        "version": "2.1.0"
+    },
+    "league/flysystem-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "913dc3d7a5a1af0d2b044c5ac3a16e2f851d7380"
+        },
+        "files": [
+            "config/packages/flysystem.yaml",
+            "var/storage/.gitignore"
+        ]
+    },
+    "league/mime-type-detection": {
+        "version": "1.8.0"
+    },
     "lexik/jwt-authentication-bundle": {
         "version": "2.5",
         "recipe": {
@@ -148,6 +188,9 @@
     },
     "monolog/monolog": {
         "version": "2.3.4"
+    },
+    "mtdowling/jmespath.php": {
+        "version": "2.6.1"
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
@@ -239,11 +282,20 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -292,6 +344,9 @@
     },
     "sebastian/version": {
         "version": "3.0.2"
+    },
+    "shrikeh/teapot": {
+        "version": "v2.3.1"
     },
     "symfony/amqp-messenger": {
         "version": "v5.3.7"
@@ -423,6 +478,9 @@
             "config/packages/messenger.yaml"
         ]
     },
+    "symfony/mime": {
+        "version": "v5.3.8"
+    },
     "symfony/monolog-bridge": {
         "version": "v5.3.7"
     },
@@ -440,6 +498,9 @@
             "config/packages/prod/monolog.yaml",
             "config/packages/test/monolog.yaml"
         ]
+    },
+    "symfony/options-resolver": {
+        "version": "v5.3.7"
     },
     "symfony/password-hasher": {
         "version": "v5.3.8"
@@ -461,6 +522,9 @@
     },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
+    },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.23.0"
     },
     "symfony/polyfill-intl-normalizer": {
         "version": "v1.23.0"
@@ -593,6 +657,9 @@
     },
     "symfony/yaml": {
         "version": "v5.3.6"
+    },
+    "teapot/status-code": {
+        "version": "v1.1.2"
     },
     "theofidry/alice-data-fixtures": {
         "version": "1.0",

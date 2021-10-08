@@ -4,6 +4,9 @@ api_platform:
             - '%kernel.project_dir%/config/api_platform/resources'
     patch_formats:
         json: ['application/merge-patch+json']
+    #formats:
+    #    form:
+    #        mime_types: ['multipart/form-data']
     swagger:
         versions: [3]
         api_keys:

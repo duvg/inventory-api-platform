@@ -155,3 +155,25 @@ App\Entity\User:
               application/ld+json:
                 schema:
                   $ref: '#/components/schemas/User.jsonld-user_read'
+    upload_avatar:
+      method: PUT
+      path: /users/{id}/avatar
+      controller: App\Api\Action\User\UploadAvatar
+      deserialize: false
+      openapi_context:
+        summary: Updates the user avatar
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  avatar:
+                    type: string
+        responses:
+          200:
+            description: OK
+            content:
+              application/ld+json:
+                schema:
+                  $ref: '#/components/schemas/User.jsonld-user_read'

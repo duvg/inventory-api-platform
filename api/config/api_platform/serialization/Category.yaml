@@ -1,0 +1,14 @@
+App\Entity\Category:
+  attributes:
+    id:
+      groups: [category_read]
+    name:
+      groups: [category_read, category_post]
+    description:
+      groups: [category_read, category_post]
+    active:
+      groups: [category_read]
+    createdAt:
+      groups: [category_read]
+    updatedAt:
+      groups: [ category_read ]

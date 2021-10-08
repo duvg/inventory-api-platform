@@ -1,0 +1,58 @@
+App\Entity\Category:
+  attributes:
+    normalization_context:
+      groups: [category_read]
+  collectionOperations:
+    get: ~
+    register:
+      method: POST
+      path: /categories/create
+      controller: App\Api\Action\Category\Create
+      denormalization_context:
+        groups: [category_post]
+      openapi_context:
+        summary: Register a new category
+
+  itemOperations:
+    get: ~
+    update:
+      method: PUT
+      path: /categories/{id}/update
+      controller: App\Api\Action\Category\Update
+      deserialize: false
+      openapi_context:
+        summary: Update a category
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    required: true
+                  description:
+                    type: string
+        responses:
+          200:
+            description: OK
+            content:
+              application/ld+json:
+                schema:
+                  $ref: '#/components/schemas/Category.jsonld-category_read'
+    delete:
+      method: DELETE
+      path: /actegories/{id}/delete
+      controller: App\Api\Action\Category\Delete
+      deserialize: false
+      openapi_context:
+        summary: Delete a category, set inactive
+        responses:
+          204:
+            description: Category deleted
+            content:
+              application/ld+json:
+                schema:
+                  $ref: '#/components/schemas/Category.jsonld-category_read'
+          404:
+            description: Category not found
