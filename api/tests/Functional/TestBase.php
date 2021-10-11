@@ -115,4 +115,24 @@ class TestBase extends WebTestCase
     {
         return $this->initDbConnection()->fetchOne('SELECT id FROM user WHERE email = "esther@test.com"');
     }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws Exception
+     */
+    protected function getCarlosGroupId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM user_groups WHERE name = "Carlos Group"');
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws Exception
+     */
+    protected function getDuvielGroupId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM user_groups WHERE name = "Duviel Group"');
+    }
 }
