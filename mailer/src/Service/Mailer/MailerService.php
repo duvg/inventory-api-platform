@@ -17,7 +17,8 @@ class MailerService
 
     private const TEMPLATE_SUBJECT_MAP = [
         TwigTemplate::USER_REGISTER => 'Bienvenid@',
-        TwigTemplate::REQUEST_RESET_PASSWORD => 'Restablecer contraseña'
+        TwigTemplate::REQUEST_RESET_PASSWORD => 'Restablecer contraseña',
+        TwigTemplate::GROUP_REQUEST => 'Invitación a grupo'
     ];
     private MailerInterface $mailer;
     private Environment $engine;
@@ -49,7 +50,7 @@ class MailerService
         try {
             $this->mailer->send($email);
         }catch (TransportExceptionInterface $e) {
-            $this->logger->error(\sprintf('Error sending emai: $s', $e->getMessage()));
+            $this->logger->error(\sprintf('Error sending email: %s', $e->getMessage()));
         }
 
     }

@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Api\ArguementResolver;
+declare(strict_types=1);
+
+namespace App\Api\ArgumentResolver;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -10,7 +12,7 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-class UserArguementResolver implements ArgumentValueResolverInterface
+class UserArgumentResolver implements ArgumentValueResolverInterface
 {
     private TokenStorageInterface $tokenStorage;
     private UserRepository $userRepository;
@@ -28,7 +30,8 @@ class UserArguementResolver implements ArgumentValueResolverInterface
         }
 
         $token = $this->tokenStorage->getToken();
-        if (!$token instanceof TokenInterface) {
+
+        if (!$token instanceof  TokenInterface) {
             return false;
         }
 

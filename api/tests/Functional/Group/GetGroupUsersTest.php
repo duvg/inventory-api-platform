@@ -40,8 +40,9 @@ class GetGroupUsersTest extends GroupTestBase
         );
 
         $response = self::$duviel->getResponse();
+        $responseData = $this->getResponseData($response);
 
         $this->assertEquals(JsonResponse::HTTP_FORBIDDEN, $response->getStatusCode());
-        $this->assertEquals('');
+        $this->assertEquals("You can't retrieve users of another group", $responseData['message']);
     }
 }

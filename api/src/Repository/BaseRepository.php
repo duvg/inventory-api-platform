@@ -6,9 +6,11 @@ namespace App\Repository;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ObjectRepository;
 
 abstract class BaseRepository
@@ -24,12 +26,26 @@ abstract class BaseRepository
         $this->objectRepository = $this->getEntityManager()->getRepository($this->entityClass());
     }
 
+    /**
+     * @return ObjectManager|EntityManager
+     */
+    public function getEntityManager()
+    {
+        $entityManager = $this->managerRegistry->getManager();
+
+        if ($entityManager->isOpen()) {
+            return $entityManager;
+        }
+
+        return $this->managerRegistry->resetManager();
+    }
+
     abstract protected static function entityClass(): string;
 
     /**
      * @throws ORMException
      */
-    public function persistEntity(object $entity)
+    protected function persistEntity(object $entity)
     {
         $this->getEntityManager()->persist($entity);
     }
@@ -38,7 +54,7 @@ abstract class BaseRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function flushData(): void
+    protected function flushData(): void
     {
         $this->getEntityManager()->flush();
         $this->getEntityManager()->clear();
@@ -48,7 +64,7 @@ abstract class BaseRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function saveEntity(object $entity)
+    protected function saveEntity(object $entity)
     {
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();
@@ -58,7 +74,7 @@ abstract class BaseRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function removeEntity(object $entity)
+    protected function removeEntity(object $entity)
     {
         $this->getEntityManager()->remove($entity);
         $this->getEntityManager()->flush();
@@ -81,17 +97,5 @@ abstract class BaseRepository
         $this->connection->executeQuery($query, $params);
     }
 
-    /**
-     * @return ObjectManager|EntityManager
-     */
-    private function getEntityManager()
-    {
-        $entityManager = $this->managerRegistry->getManager();
 
-        if ($entityManager->isOpen()) {
-            return $entityManager;
-        }
-
-        return $this->managerRegistry->resetManager();
-    }
 }
