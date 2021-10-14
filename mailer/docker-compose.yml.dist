@@ -19,7 +19,7 @@ services:
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
     depends_on:
-      - inventory-api-platform-db
+      - inventory-api-platform-mailer-db
     networks:
       - inventory-api-platform-network
 
