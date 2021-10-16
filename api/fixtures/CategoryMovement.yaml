@@ -1,0 +1,45 @@
+App\Entity\CategoryMovement:
+  CategoryMovement-0:
+    __construct:
+      name: Carlos Expense Category Movement
+      type: expense
+      owner: '@User-0'
+  CategoryMovement-1:
+    __construct:
+      name: Carlos Income Category Movement
+      type: income
+      owner: '@User-0'
+  CategoryMovement-2:
+    __construct:
+      name: Carlos Group Expense Category Movement
+      type: expense
+      owner: '@User-0'
+      group: '@Group-0'
+  CategoryMovement-3:
+    __construct:
+      name: Carlos Group Income Category Movement
+      type: income
+      owner: '@User-0'
+      group: '@Group-0'
+  CategoryMovement-4:
+    __construct:
+      name: Duviel Expense Category Movement
+      type: expense
+      owner: '@User-1'
+  CategoryMovement-5:
+    __construct:
+      name: Duviel Income Category Movement
+      type: income
+      owner: '@User-1'
+  CategoryMovement-6:
+    __construct:
+      name: Duviel Group Expense Category Movement
+      type: expense
+      owner: '@User-1'
+      group: '@Group-1'
+  CategoryMovement-7:
+    __construct:
+      name: Duviel Group Income Category Movement
+      type: income
+      owner: '@User-1'
+      group: '@Group-1'

@@ -109,3 +109,8 @@ App\Entity\Group:
         subresourceClass: App\Entity\User
         collection: true
         maxDepth: 1
+    categoryMovements:
+      subresource:
+        subresourceClass: App\CategoryMovement
+        collection: true
+        maxDepth: 1

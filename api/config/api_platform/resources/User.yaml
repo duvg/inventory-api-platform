@@ -192,3 +192,8 @@ App\Entity\User:
         reourceClass: App\Entity\Group
         collection: true
         maxDepth: 1
+    categoryMovements:
+      subresource:
+        resourceClass: App\Entity\CategoryMovement
+        collection: true
+        maxDepth: 1

@@ -1,0 +1,22 @@
+App\Entity\CategoryMovement:
+  attributes:
+    normalization_context:
+      groups: [categorymovement_read]
+  collectionOperations:
+    post:
+      method: POST
+      security: is_granted("CATEGORYMOVEMENT_CREATE")
+      denormalization_context:
+        groups: [categorymovement_create]
+  itemOperations:
+    get:
+      method: GET
+      security: is_granted("CATEGORYMOVEMENT_READ", object)
+    put:
+      method: PUT
+      security: is_granted("CATEGORYMOVEMENT_UPDATE", object)
+      denormalization_context:
+        groups: [categorymovement_update]
+    delete:
+      method: DELETE
+      security: is_granted("CATEGORYMOVEMENT_DELETE", object)

@@ -25,6 +25,7 @@ class User implements UserInterface
     private \Datetime $createdAt;
     private \Datetime $updatedAt;
     private Collection $groups;
+    private Collection $categoryMovements;
 
 
 
@@ -41,7 +42,10 @@ class User implements UserInterface
         $this->createdAt = new \Datetime();
         $this->markAsUpdated();
         $this->groups = new ArrayCollection();
+        $this->categoryMovements = new ArrayCollection();
     }
+
+
 
     public function getId(): string
     {
@@ -189,5 +193,13 @@ class User implements UserInterface
 
     public function isMemberOfGroup(Group $group): bool {
         return $this->groups->contains($group);
+    }
+
+    /**
+     * @return Collection|CategoryMovement[]
+     */
+    public function getCategoryMovements(): Collection
+    {
+        return $this->categoryMovements;
     }
 }

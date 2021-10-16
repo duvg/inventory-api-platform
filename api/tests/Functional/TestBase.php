@@ -135,4 +135,78 @@ class TestBase extends WebTestCase
     {
         return $this->initDbConnection()->fetchOne('SELECT id FROM user_groups WHERE name = "Duviel Group"');
     }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getCarlosExpenseCategoryMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Carlos Expense Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getCarlosIncomeCategoryMovement()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Carlos Income Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getCarlosGroupExpenseCategoryMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Carlos Group Expense Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getCarlosGroupIncomeCategoryMovement()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Carlos Group Income Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getDuvielExpenseCategoryMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Duviel Expense Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getDuvielIncomeCategoryMovement()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Duviel Income Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getDuvielGroupExpenseCategoryMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Duviel Group Expense Category Movement"');
+    }
+
+    /**
+     * @return false|mixed
+     * @throws Exception
+     */
+    protected function getDuvielGroupIncomeCategoryMovement()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Duviel Group Income Category Movement"');
+    }
+
+
 }

@@ -1,0 +1,16 @@
+App\Entity\CategoryMovement:
+  attributes:
+    id:
+      groups: [categorymovement_read]
+    name:
+      groups: [categorymovement_read, categorymovement_create, categorymovement_update]
+    type:
+      groups: [categorymovement_read, categorymovement_create]
+    owner:
+      groups: [categorymovement_read, categorymovement_create]
+    group:
+      groups: [categorymovement_read, categorymovement_create]
+    createdAt:
+      groups: [categorymovement_read]
+    updatedAt:
+      groups: [categorymovement_read]
