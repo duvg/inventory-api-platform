@@ -7,6 +7,8 @@ namespace App\Api\Action\User;
 use App\Entity\User;
 use App\Service\Request\RequestService;
 use App\Service\User\UploadAvatarService;
+use Doctrine\ORM\Exception\ORMException;
+use Doctrine\ORM\OptimisticLockException;
 use Symfony\Component\HttpFoundation\Request;
 
 class UploadAvatar
@@ -20,14 +22,13 @@ class UploadAvatar
 
     /**
      * @param Request $request
-     * @param $id
-     * @return string
+     * @param User $user
+     * @return User
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
-    public function __invoke(Request $request, $id): User
+    public function __invoke(Request $request, User $user): User
     {
-        return $this->uploadAvatarService->upload(
-            $id,
-            RequestService::getField($request, 'avatar')
-        );
+        return $this->uploadAvatarService->uploadAvatar($request, $user);
     }
 }

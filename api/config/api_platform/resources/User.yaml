@@ -165,7 +165,7 @@ App\Entity\User:
                 schema:
                   $ref: '#/components/schemas/User.jsonld-user_read'
     upload_avatar:
-      method: PUT
+      method: POST
       path: /users/{id}/avatar
       controller: App\Api\Action\User\UploadAvatar
       deserialize: false
@@ -173,12 +173,13 @@ App\Entity\User:
         summary: Updates the user avatar
         requestBody:
           content:
-            application/json:
+            multipart/form-data:
               schema:
                 type: object
                 properties:
                   avatar:
                     type: string
+                    format: binary
         responses:
           200:
             description: OK
