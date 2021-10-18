@@ -3,9 +3,11 @@
 declare(strict_types=1);
 
 namespace App\Service\File;
+use League\Flysystem\FilesystemException;
 use League\Flysystem\FilesystemOperator;
 use League\Flysystem\Visibility;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -32,16 +34,7 @@ class FileService
         $this->defaultStorage->writeStream(
             $fileName,
             \fopen($file->getPathname(), 'r'),
-            [
-                'file' => [
-                    'public' => 0744,
-                    'private' => 0700,
-                ],
-                'dir' => [
-                    'public' => 0755,
-                    'private' => 0700,
-                ]
-            ]
+            ['visibility' => Visibility::PUBLIC]
         );
 
         return $fileName;
@@ -57,14 +50,18 @@ class FileService
         return $file;
     }
 
+    /**
+     * @param string|null $path
+     * @throws FileNotFoundException|FilesystemException
+     */
     public function deleteFile(?string $path): void
     {
         try {
             if (null !== $path) {
-                $this->defaultStorage->delete(\explode($this->mediaPath, $path)[1]);
+                $this->defaultStorage->delete($path);
             }
         } catch(\Exception $e) {
-            $this->logger->warning(\sprintf('File %s not found in teh storage', $path));
+            $this->logger->warning(\sprintf('File %s not found in the storage', $path));
         }
     }
 }

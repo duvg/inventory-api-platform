@@ -198,3 +198,8 @@ App\Entity\User:
         resourceClass: App\Entity\CategoryMovement
         collection: true
         maxDepth: 1
+    movements:
+      subresource:
+        resourceClass: App\Entity\Movement
+        collection: true
+        maxDepth: 1

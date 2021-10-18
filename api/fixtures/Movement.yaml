@@ -1,0 +1,23 @@
+App\Entity\Movement:
+  Movement-0:
+    __construct: # Expense movement for Carlos
+      categoryMovement: '@CategoryMovement-0'
+      owner: '@User-0'
+      amount: 100
+  Movement-1:
+    __construct: # Expense movement for Carlos Group
+      categoryMovement: '@CategoryMovement-1'
+      owner: '@User-0'
+      group: '@Group-0'
+      amount: 1000
+  Movement-2:
+    __construct: # Expense movement for Duviel
+      categoryMovement: '@CategoryMovement-4'
+      owner: '@User-1'
+      amount: 200
+  Movemebt-3:
+    __construct: # Expense movement for Duviel Group
+      categoryMovement: '@CategoryMovement-6'
+      owner: '@User-1'
+      group: '@Group-1'
+      amount: 2000

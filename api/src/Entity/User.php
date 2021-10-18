@@ -26,8 +26,7 @@ class User implements UserInterface
     private \Datetime $updatedAt;
     private Collection $groups;
     private Collection $categoryMovements;
-
-
+    private Collection $movements;
 
     public function __construct(string $name, string $email)
     {
@@ -43,6 +42,7 @@ class User implements UserInterface
         $this->markAsUpdated();
         $this->groups = new ArrayCollection();
         $this->categoryMovements = new ArrayCollection();
+        $this->movements = new ArrayCollection();
     }
 
 
@@ -201,5 +201,13 @@ class User implements UserInterface
     public function getCategoryMovements(): Collection
     {
         return $this->categoryMovements;
+    }
+
+    /**
+     * @return Movement|Collection
+     */
+    public function getMovements(): Collection
+    {
+        return $this->movements;
     }
 }

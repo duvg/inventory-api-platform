@@ -33,7 +33,7 @@ services:
         arguments:
             - version: '%env(resolve:VERSION)%'
               region: '%env(resolve:REGION)%'
-              endpoint: '%env(resolve:ENDPOINT)%'
+              service: 's3'
               credentials:
                   key: '%env(resolve:KEY)%'
                   secret: '%env(resolve:SECRET)%'

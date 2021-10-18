@@ -6,6 +6,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\QueryCollectionExtensionInter
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use App\Entity\CategoryMovement;
 use App\Entity\Group;
+use App\Entity\Movement;
 use App\Entity\User;
 use App\Exception\Group\GroupNotFoundException;
 use App\Repository\GroupRepository;
@@ -58,7 +59,7 @@ class CurrentUserExtension implements QueryCollectionExtensionInterface
             throw new AccessDeniedHttpException('You can\'t retrieve users of another group');
         }
 
-        if (CategoryMovement::class === $resourceClass) {
+        if (\in_array($resourceClass, [CategoryMovement::class, Movement::class])) {
             $parameterId = $qb->getParameters()->first()->getValue();
 
             if ($this->isGroupAndUserIsMember($parameterId, $user)) {
@@ -83,6 +84,9 @@ class CurrentUserExtension implements QueryCollectionExtensionInterface
 
     private function getResources(): array
     {
-        return [CategoryMovement::class => 'owner'];
+        return [
+            CategoryMovement::class => 'owner',
+            Movement::class => 'owner'
+        ];
     }
 }

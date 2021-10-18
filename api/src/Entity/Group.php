@@ -17,6 +17,7 @@ class Group
     private \DateTime $updatedAt;
     private Collection $users;
     private Collection $categoryMovements;
+    private Collection $movements;
 
     public function __construct(string $name, User $owner)
     {
@@ -28,6 +29,7 @@ class Group
         $this->users = new ArrayCollection([$owner]);
         $owner->addGroup($this);
         $this->categoryMovements = new ArrayCollection();
+        $this->movements = new ArrayCollection();
     }
 
     /**
@@ -130,6 +132,14 @@ class Group
     public function getCategoryMovements(): Collection
     {
         return $this->categoryMovements;
+    }
+
+    /**
+     * @return Movement|Collection
+     */
+    public function getMovements(): Collection
+    {
+        return $this->movements;
     }
 
 }

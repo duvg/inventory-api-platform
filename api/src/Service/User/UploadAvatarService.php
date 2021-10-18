@@ -42,7 +42,7 @@ class UploadAvatarService
 
         $this->fileService->deleteFile($user->getAvatar());
 
-        $fileName = $this->fileService->uploadFile($file, FileService::AVATAR_INPUT_NAME);
+        $fileName = $this->fileService->uploadFile($file, FileService::AVATAR_INPUT_NAME, 'public');
         $user->setAvatar($fileName);
 
         $this->userRepository->save($user);

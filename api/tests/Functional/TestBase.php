@@ -208,5 +208,23 @@ class TestBase extends WebTestCase
         return $this->initDbConnection()->fetchOne('SELECT id FROM categorymovement WHERE name = "Duviel Group Income Category Movement"');
     }
 
+    protected function getCarlosMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM movement WHERE amount = 100');
+    }
 
+    protected function getCarlosGroupMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM movement WHERE amount = 1000');
+    }
+
+    protected function getDuvielMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM movement WHERE amount = 200');
+    }
+
+    protected function getDuvielGroupMovementId()
+    {
+        return $this->initDbConnection()->fetchOne('SELECT id FROM movement WHERE amount = 2000');
+    }
 }

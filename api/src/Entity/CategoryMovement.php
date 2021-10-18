@@ -107,4 +107,13 @@ class CategoryMovement
          return $this->owner->getId() === $user->getId();
     }
 
+    public function belongsToGroup(Group $group)
+    {
+        if (null !== $this->group) {
+            return $this->group->getId() === $group->getId();
+        }
+
+        return false;
+    }
+
 }
