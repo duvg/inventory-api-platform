@@ -7,8 +7,7 @@ namespace App\Service\User;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Service\File\FileService;
-use App\Service\Request\RequestService;
-use Cloudinary\Cloudinary;
+use League\Flysystem\Visibility;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,7 +41,7 @@ class UploadAvatarService
 
         $this->fileService->deleteFile($user->getAvatar());
 
-        $fileName = $this->fileService->uploadFile($file, FileService::AVATAR_INPUT_NAME, 'public');
+        $fileName = $this->fileService->uploadFile($file, FileService::AVATAR_INPUT_NAME, Visibility::PUBLIC );
         $user->setAvatar($fileName);
 
         $this->userRepository->save($user);

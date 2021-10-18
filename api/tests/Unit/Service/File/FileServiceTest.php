@@ -8,6 +8,7 @@ use App\Service\File\FileService;
 use Faker\Core\File;
 use League\Flysystem\FilesystemException;
 use League\Flysystem\FilesystemOperator;
+use League\Flysystem\Visibility;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
@@ -46,7 +47,7 @@ class FileServiceTest extends TestCase
         $uploadedFile->method('guessExtension')->willReturn('png');
         $prefix = 'avatar';
 
-        $response = $this->fileService->uploadFile($uploadedFile, $prefix);
+        $response = $this->fileService->uploadFile($uploadedFile, $prefix, Visibility::PUBLIC);
 
         $this->assertIsString($response);
     }
