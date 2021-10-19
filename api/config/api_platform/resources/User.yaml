@@ -198,7 +198,7 @@ App\Entity\User:
       subresource:
         reourceClass: App\Entity\Group
         collection: true
-        maxDepth: 1
+        maxDepth: 2
     categoryMovements:
       subresource:
         resourceClass: App\Entity\CategoryMovement

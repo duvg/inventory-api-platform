@@ -33,6 +33,9 @@ class CreateMovementTest extends MovementTestBase
 
         $this->assertEquals(JsonResponse::HTTP_CREATED, $response->getStatusCode());
         $this->assertEquals($payload['amount'], $responseData['amount']);
+        $this->assertEquals($payload['categoryMovement'], $responseData['categoryMovement']['@id']);
+        $this->assertEquals($payload['owner'], $responseData['owner']['@id']);
+
     }
 
     public function testCreateMovementGroup(): void
@@ -61,6 +64,9 @@ class CreateMovementTest extends MovementTestBase
 
         $this->assertEquals(JsonResponse::HTTP_CREATED, $response->getStatusCode());
         $this->assertEquals($payload['amount'], $responseData['amount']);
+        $this->assertEquals($payload['categoryMovement'], $responseData['categoryMovement']['@id']);
+        $this->assertEquals($payload['owner'], $responseData['owner']['@id']);
+        $this->assertEquals($payload['group'], $responseData['group']['@id']);
     }
 
     public function testCreateMovementForAnotherUser(): void

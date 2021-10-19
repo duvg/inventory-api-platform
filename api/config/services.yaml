@@ -56,6 +56,9 @@ services:
         tags: ['api_platform.filter']
     ###< API Platform Filters
 
+    App\Swagger\Decorator\ApiNormalizer:
+        decorates: 'api_platform.jsonld.normalizer.item'
+
     _instanceof:
         App\Api\Listener\PreWriteListener\PreWriteListener:
             tags:
